@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.TbAktif {
+  @apply bg-emerald-500 text-white hover:bg-emerald-600;
+}
+
+.TbPasif {
+  @apply bg-gray-300 text-gray-400;
+}
+
+.Btn {
+  @apply text-white  cursor-default rounded-lg  items-center flex justify-center font-semibold;
+}
+
+.BtnSubmitMini {
+  @apply text-xxs bg-emerald-500 text-white hover:bg-emerald-400 cursor-default rounded-lg  items-center flex justify-center font-semibold;
+}
+
+.BtnSubmitMini:disabled {
+  @apply bg-gray-300 text-gray-400;
+}
+
+.BtnSubmit {
+  @apply text-base bg-emerald-400 text-white hover:bg-emerald-400 cursor-default rounded-lg  items-center flex justify-center font-semibold;
+}
+
+.BtnSubmit:disabled {
+  @apply bg-gray-300 text-gray-400;
+}
+
+.BtnNegative {
+  @apply cursor-default text-base bg-white text-gray-400  w-full h-10 rounded-lg  items-center flex justify-center font-semibold;
+}
+
+.BtnNegative:hover {
+  @apply bg-slate-200;
+}
+
+.form_pop {
+  @apply text-xs;
+}
+
+.aux-container {
+  -webkit-mask-image: radial-gradient(
+    circle 10px at 0 0,
+    transparent 0,
+    transparent 20px,
+    black 21px
+  );
+}
+
+.aux-container-l {
+  -webkit-mask-image: radial-gradient(
+    circle 50px at 0 0,
+    transparent 0,
+    transparent 50px,
+    black 0px
+  );
+}
