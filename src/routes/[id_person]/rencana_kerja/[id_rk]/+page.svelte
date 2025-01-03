@@ -129,7 +129,7 @@
           Authorization: "Bearer " + accessKey,
         },
         body: JSON.stringify({
-          divisi: "9",
+          divisi: renker.id_divisi.toString(),
         }),
         credentials: "include",
       }
