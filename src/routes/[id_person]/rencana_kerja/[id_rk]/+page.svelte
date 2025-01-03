@@ -161,24 +161,35 @@
     const namaDivisi = $divisi.nama_divisi;
     /*  const idDivisi = $divisi.id_divisi; */
     const idDivisi = renker.id_divisi;
+    const userAccess = $user.access;
 
-    console.log("STORE DIVISI =====", $divisi);
-    console.log("STORE USER =====", $user);
-
-    breadcrumbs.set([
-      {
-        label: `Dashboard`,
-        href: `/${idKaryawan}/dashboard_direksi`,
-      },
-      {
-        label: `Divisi`,
-        href: `/${idKaryawan}/dashboard_divisi/${idDivisi}`,
-      },
-      {
-        label: `RenKer`,
-        href: "#",
-      },
-    ]);
+    if (userAccess === 2) {
+      breadcrumbs.set([
+        {
+          label: `Dashboard`,
+          href: `/${idKaryawan}/dashboard_divisi/${idDivisi}`,
+        },
+        {
+          label: `RenKer`,
+          href: `#`,
+        },
+      ]);
+    } else {
+      breadcrumbs.set([
+        {
+          label: `Dashboard`,
+          href: `/${idKaryawan}/dashboard_direksi`,
+        },
+        {
+          label: `Divisi`,
+          href: `/${idKaryawan}/dashboard_divisi/${idDivisi}`,
+        },
+        {
+          label: `RenKer`,
+          href: "#",
+        },
+      ]);
+    }
   });
 
   const KPI = "omset 200 jt bulan september 2024";

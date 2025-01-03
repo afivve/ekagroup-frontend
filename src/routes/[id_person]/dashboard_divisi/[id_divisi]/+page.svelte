@@ -77,8 +77,8 @@
     if (response.ok) {
       let targets_data = await response.json();
       targets = targets_data.data;
+      console.log(targets);
     }
-    console.log(targets, "targets");
   };
 
   const get_renkers = async () => {
@@ -137,14 +137,24 @@
     await get_karyawans();
 
     const idKaryawan = $user.id_karyawan;
+    const userAccess = $user.access;
 
-    breadcrumbs.set([
-      { label: "Dashboard", href: `/${idKaryawan}/dashboard_direksi` },
-      {
-        label: `Divisi`,
-        href: `/${idKaryawan}/dashboard_divisi/${divisi_data.id_divisi}`,
-      },
-    ]);
+    if (userAccess === 2) {
+      breadcrumbs.set([
+        {
+          label: `Dashboard`,
+          href: `/${idKaryawan}/dashboard_divisi/${divisi_data.id_divisi}`,
+        },
+      ]);
+    } else {
+      breadcrumbs.set([
+        { label: "Dashboard", href: `/${idKaryawan}/dashboard_direksi` },
+        {
+          label: `Divisi`,
+          href: `/${idKaryawan}/dashboard_divisi/${divisi_data.id_divisi}`,
+        },
+      ]);
+    }
   });
 </script>
 
@@ -184,7 +194,7 @@
     <!-- Target Slide -->
     <div class="w-full my-5 p-3">
       <h3 class="ml-2 text-gray-500">
-        {targets.length} target divisi marketing
+        {targets.length} target divisi {targets.nama_divisi}
       </h3>
       <div
         class="relative w-full h-40 overflow-x-scroll mt-2 flex items-center"

@@ -15,6 +15,8 @@
   import Plus from "$lib/svg/plus.svelte";
   import TambahKaryawan from "$lib/compo/tambah_karyawan.svelte";
   import { divisi_value, divisies } from "$lib/stores/divisies";
+  import { user } from "$lib/stores/userLogin";
+  import { breadcrumbs } from "$lib/stores/breadcrumb";
 
   let accessKey = "";
   let karyawans = [];
@@ -103,6 +105,17 @@
     await get_karyawans();
     await generate_data_karyawan();
     console.log(karyawan_by_divisi);
+    const idKaryawan = $user.id_karyawan;
+    const userAccess = $user.access;
+
+    if (userAccess === 5) {
+      breadcrumbs.set([
+        {
+          label: `Dashboard`,
+          href: `/${idKaryawan}/dashboard_hrga`,
+        },
+      ]);
+    }
   });
 </script>
 

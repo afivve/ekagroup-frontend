@@ -92,18 +92,32 @@
 
     const idKaryawan = $user.id_karyawan;
     const idDivisi = target.id_divisi;
+    const userAccess = $user.access;
 
-    breadcrumbs.set([
-      { label: "Dashboard", href: `/${idKaryawan}/dashboard_direksi` },
-      {
-        label: `Divisi`,
-        href: `/${idKaryawan}/dashboard_divisi/${idDivisi}`,
-      },
-      {
-        label: `Target`,
-        href: `#`,
-      },
-    ]);
+    if (userAccess === 2) {
+      breadcrumbs.set([
+        {
+          label: `Dashboard`,
+          href: `/${idKaryawan}/dashboard_divisi/${idDivisi}`,
+        },
+        {
+          label: `Target`,
+          href: `#`,
+        },
+      ]);
+    } else {
+      breadcrumbs.set([
+        { label: "Dashboard", href: `/${idKaryawan}/dashboard_direksi` },
+        {
+          label: `Divisi`,
+          href: `/${idKaryawan}/dashboard_divisi/${idDivisi}`,
+        },
+        {
+          label: `Target`,
+          href: `#`,
+        },
+      ]);
+    }
   });
 </script>
 

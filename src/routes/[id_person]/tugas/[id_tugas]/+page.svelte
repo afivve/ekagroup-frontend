@@ -79,22 +79,37 @@
     const idKaryawan = $user.id_karyawan;
     const idDivisi = tugas.id_divisi;
     const idRenker = tugas.id_renker;
+    const idDivisiUser = $user.divisi;
+    const userAccess = $user.access;
 
-    breadcrumbs.set([
-      { label: "Dashboard", href: "/A004/dashboard_direksi" },
-      {
-        label: `Divisi`,
-        href: `/${idKaryawan}/dashboard_divisi/${idDivisi}`,
-      },
-      {
-        label: `RenKer`,
-        href: `/${idKaryawan}/rencana_kerja/${idRenker}`,
-      },
-      {
-        label: `Tugas `,
-        href: `#`,
-      },
-    ]);
+    if (userAccess === 1) {
+      breadcrumbs.set([
+        {
+          label: `Dashboard`,
+          href: `/${idKaryawan}/dashboard_divisi/${idDivisiUser}/dashboard_staff`,
+        },
+        {
+          label: `Tugas `,
+          href: `#`,
+        },
+      ]);
+    } else {
+      breadcrumbs.set([
+        { label: "Dashboard", href: "/A004/dashboard_direksi" },
+        {
+          label: `Divisi`,
+          href: `/${idKaryawan}/dashboard_divisi/${idDivisi}`,
+        },
+        {
+          label: `RenKer`,
+          href: `/${idKaryawan}/rencana_kerja/${idRenker}`,
+        },
+        {
+          label: `Tugas `,
+          href: `#`,
+        },
+      ]);
+    }
   });
 </script>
 

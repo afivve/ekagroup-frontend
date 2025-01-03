@@ -18,6 +18,7 @@
   import Plus from "$lib/svg/plus.svelte";
   import { user } from "$lib/stores/userLogin";
   import { requestNotificationPermission } from "$lib/dependedncies/firebase";
+  import { breadcrumbs } from "$lib/stores/breadcrumb";
 
   /**
    * @type {any[]}
@@ -102,6 +103,18 @@
     await get_renkers();
     await get_tugases();
     await tokenFirebase();
+    const idKaryawan = $user.id_karyawan;
+    const userAccess = $user.access;
+    const idDivisiUser = $user.divisi;
+
+    if (userAccess === 1) {
+      breadcrumbs.set([
+        {
+          label: `Dashboard`,
+          href: `/${idKaryawan}/dashboard_divisi/${idDivisiUser}/dashboard_staff`,
+        },
+      ]);
+    }
   });
 </script>
 
