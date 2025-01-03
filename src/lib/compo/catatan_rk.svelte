@@ -52,6 +52,7 @@
       catatans.unshift({ catatan: catatan_baru });
       catatans = catatans;
       catatan_baru = "";
+      currentOpenCatatan(false);
     }
   };
 </script>

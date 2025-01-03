@@ -169,6 +169,8 @@
       location.reload();
     } else {
       toast.error("terjadi kesalahan");
+      currentOpenEditTugas(0);
+      loadinge(false);
     }
   };
 

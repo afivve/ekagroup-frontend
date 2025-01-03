@@ -155,7 +155,8 @@
     );
     if (response.ok) {
       toast.success("berhasil menambahkan tugas");
-      location.reload();
+      loadinge(false);
+      currentOpenTambahTugas(false);
     } else {
       const errore = await response.json();
       const erore = errore.detail;

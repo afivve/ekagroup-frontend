@@ -52,6 +52,7 @@
       catatans = catatans;
       console.log("catatans====", catatans);
       catatan_baru = "";
+      currentOpenCatatan(false);
     }
   };
 </script>
